@@ -26,4 +26,9 @@ public class StateMachine : MonoBehaviour
     {
         currentState.OnTriggerEnter(this, collider);
     }
+
+    private void OnTriggerExit(Collider collider)
+    {
+        currentState.OnTriggerExit(this, collider);
+    }
 }

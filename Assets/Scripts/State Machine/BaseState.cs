@@ -21,7 +21,8 @@ public abstract class BaseState
     public abstract void CheckSwitchState();
 
     public abstract void OnTriggerEnter(StateMachine stateMachine, Collider collider);
-
+    public abstract void OnTriggerExit(StateMachine stateMachine, Collider collider);
+    
     protected void SwitchStates(BaseState newState)
     {
         ExitState();

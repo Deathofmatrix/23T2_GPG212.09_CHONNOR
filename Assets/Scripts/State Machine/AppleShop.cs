@@ -34,6 +34,15 @@ public class AppleShop : BaseState
     public override void OnTriggerEnter(StateMachine stateMachine, Collider collider)
     {
 
+    }
 
+    public override void OnTriggerExit(StateMachine stateMachine, Collider collider)
+    {
+        GameObject go = collider.gameObject;
+
+        if (go.CompareTag("AppleShop"))
+        {
+            SwitchStates(factory.NoShopState());
+        }
     }
 }

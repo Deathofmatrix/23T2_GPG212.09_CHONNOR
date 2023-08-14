@@ -8,7 +8,7 @@ public class CarrotShop : BaseState
 
     public override void EnterState()
     {
-        Debug.Log("You are out at Sea");
+        Debug.Log("Hello from the Carrot Shop");
     }
 
     public override void UpdateState()
@@ -34,5 +34,15 @@ public class CarrotShop : BaseState
     public override void OnTriggerEnter(StateMachine stateMachine, Collider collider)
     {
 
+    }
+
+    public override void OnTriggerExit(StateMachine stateMachine, Collider collider)
+    {
+        GameObject go = collider.gameObject;
+
+        if (go.CompareTag("CarrotShop"))
+        {
+            SwitchStates(factory.NoShopState());
+        }
     }
 }

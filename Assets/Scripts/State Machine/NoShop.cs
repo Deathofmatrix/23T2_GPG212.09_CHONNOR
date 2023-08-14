@@ -39,5 +39,15 @@ public class NoShop : BaseState
         {
             SwitchStates(factory.AppleShopState());
         }
+
+        if (go.CompareTag("CarrotShop"))
+        {
+            SwitchStates(factory.CarrotShopState());
+        }
+    }
+
+    public override void OnTriggerExit(StateMachine stateMachine, Collider collider)
+    {
+
     }
 }

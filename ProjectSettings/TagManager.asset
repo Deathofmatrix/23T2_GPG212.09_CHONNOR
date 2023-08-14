@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - AppleShop
+  - CarrotShop
   layers:
   - Default
   - TransparentFX
