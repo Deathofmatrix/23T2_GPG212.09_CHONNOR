@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90f4d120c57d65343a75f02e4d8f49c8, type: 3}
-  m_Name: Carrot
+  m_Name: Apple
   m_EditorClassIdentifier: 
-  itemName: Carrot
-  itemPrice: 3
-  itemImage: {fileID: 0}
+  itemEnum: 2
+  itemImage: {fileID: 21300000, guid: a6fd4efdc40b2da40b926a6d1aa93fc5, type: 3}
+  itemPrice: 2
   itemText: 

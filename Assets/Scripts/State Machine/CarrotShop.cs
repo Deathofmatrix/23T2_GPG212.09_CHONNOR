@@ -33,7 +33,11 @@ public class CarrotShop : BaseState
 
     public override void OnTriggerEnter(StateMachine stateMachine, Collider collider)
     {
-
+        if (collider.CompareTag("Shop"))
+        {
+            //popup "E to interact"
+            //populate NPC Inventory
+        }
     }
 
     public override void OnTriggerExit(StateMachine stateMachine, Collider collider)

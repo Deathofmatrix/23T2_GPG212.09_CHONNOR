@@ -12,7 +12,7 @@ public class TestItemManager : MonoBehaviour
 
     private void TestGetPriceOfItem()
     {
-        string itemName = "Apple"; // Replace with the name of the item you want to test
+        Item.ItemEnum itemName = Item.ItemEnum.Apple; // Replace with the name of the item you want to test
 
         int itemPrice = itemsManager.GetPriceOfItem(itemName);
 

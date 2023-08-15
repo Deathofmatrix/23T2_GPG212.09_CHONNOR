@@ -16,6 +16,8 @@ public class ThirdPersonController : MonoBehaviour
 
     [SerializeField] private Camera playerCamera;
 
+    [SerializeField] private GameObject inventoryCanvas;
+
     private void Awake()
     {
         rb = this.GetComponent<Rigidbody>();
@@ -25,12 +27,20 @@ public class ThirdPersonController : MonoBehaviour
     private void OnEnable()
     {
         move = playerActionAsset.Player.Move;
+        playerActionAsset.Player.OpenInventory.started += OpenInventory;
         playerActionAsset.Player.Enable();
     }
 
     private void OnDisable()
     {
+        playerActionAsset.Player.OpenInventory.started -= OpenInventory;
         playerActionAsset.Player.Enable();
+    }
+
+    private void Start()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void FixedUpdate()
@@ -49,6 +59,21 @@ public class ThirdPersonController : MonoBehaviour
         }
 
         LookAt();
+    }
+
+    private void OpenInventory(InputAction.CallbackContext obj)
+    {
+        bool isInvOpen = inventoryCanvas.activeInHierarchy;
+        inventoryCanvas.SetActive(!isInvOpen);
+        Cursor.visible = !isInvOpen;
+        if (!isInvOpen)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
     private void LookAt()

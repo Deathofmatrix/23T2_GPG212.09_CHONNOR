@@ -5,13 +5,13 @@ using UnityEngine;
 public class ItemsManager : MonoBehaviour
 {
 
-    public List<Items> itemsList = new List<Items>();
+    public List<Item> itemsList = new List<Item>();
 
     public static int priceOfItem;
     
-    public int GetPriceOfItem(string itemChoosenToSell)
+    public int GetPriceOfItem(Item.ItemEnum itemChoosenToSell)
     {
-        Items item = itemsList.Find(x => x.itemName == itemChoosenToSell);
+        Item item = itemsList.Find(x => x.itemEnum == itemChoosenToSell);
 
         if (item != null)
         {
