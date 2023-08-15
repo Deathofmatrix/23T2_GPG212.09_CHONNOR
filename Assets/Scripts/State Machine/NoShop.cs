@@ -9,6 +9,8 @@ public class NoShop : BaseState
 
     public override void EnterState()
     {
+        ctx.pressE.enabled = false;
+        ctx.IsInShop = false;
         Debug.Log("You are out at Sea");
     }
 
@@ -35,14 +37,9 @@ public class NoShop : BaseState
     {
         GameObject go = collider.gameObject;
 
-        if(go.CompareTag("AppleShop"))
+        if(go.CompareTag("Shop"))
         {
-            SwitchStates(factory.AppleShopState());
-        }
-
-        if (go.CompareTag("CarrotShop"))
-        {
-            SwitchStates(factory.CarrotShopState());
+            SwitchStates(factory.Shop());
         }
     }
 

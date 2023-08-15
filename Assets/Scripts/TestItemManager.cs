@@ -25,4 +25,12 @@ public class TestItemManager : MonoBehaviour
             Debug.Log("Item not found or price is zero.");
         }
     }
+
+    //private void Update()
+    //{
+    //    if(StateMachine.isInShop == true)
+    //    {
+    //        Debug.Log("Bool worked");
+    //    }
+    //}
 }

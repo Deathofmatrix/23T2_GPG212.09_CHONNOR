@@ -1,48 +1,48 @@
 
-using UnityEngine;
+//using UnityEngine;
 
-public class AppleShop : BaseState
-{
-    public AppleShop(StateMachine stateMachine, StateFactory stateFactory)
-        : base(stateMachine, stateFactory) { }
+//public class AppleShop : BaseState
+//{
+//    public AppleShop(StateMachine stateMachine, StateFactory stateFactory)
+//        : base(stateMachine, stateFactory) { }
 
-    public override void EnterState()
-    {
-        Debug.Log("Hello from the Apple Shop");
-    }
+//    public override void EnterState()
+//    {
+//        Debug.Log("Hello from the Apple Shop");
+//    }
 
-    public override void UpdateState()
-    {
+//    public override void UpdateState()
+//    {
 
-        // Run Shop
-        // Call Purchasing Method
+//        // Run Shop
+//        // Call Purchasing Method
 
-        CheckSwitchState();
-    }
+//        CheckSwitchState();
+//    }
 
-    public override void CheckSwitchState()
-    {
-        // OnTriggerExit
-        // call switchStates()
-    }
+//    public override void CheckSwitchState()
+//    {
+//        // OnTriggerExit
+//        // call switchStates()
+//    }
 
-    public override void ExitState()
-    {
+//    public override void ExitState()
+//    {
 
-    }
+//    }
 
-    public override void OnTriggerEnter(StateMachine stateMachine, Collider collider)
-    {
+//    public override void OnTriggerEnter(StateMachine stateMachine, Collider collider)
+//    {
 
-    }
+//    }
 
-    public override void OnTriggerExit(StateMachine stateMachine, Collider collider)
-    {
-        GameObject go = collider.gameObject;
+//    public override void OnTriggerExit(StateMachine stateMachine, Collider collider)
+//    {
+//        GameObject go = collider.gameObject;
 
-        if (go.CompareTag("AppleShop"))
-        {
-            SwitchStates(factory.NoShopState());
-        }
-    }
-}
+//        if (go.CompareTag("Shop"))
+//        {
+//            SwitchStates(factory.NoShopState());
+//        }
+//    }
+//}

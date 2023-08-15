@@ -8,17 +8,11 @@ public class StateFactory
     }
 
 
-
-    public AppleShop AppleShopState()
+    public ShopState Shop()
     {
-        return new AppleShop(context, this);
+        return new ShopState(context, this);
     }
-
-    public CarrotShop CarrotShopState()
-    { 
-        return new CarrotShop(context, this); 
-    }
-
+  
     public NoShop NoShopState()
     {
         return new NoShop(context,this);

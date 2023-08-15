@@ -50,7 +50,7 @@ public class NPCPurchasing : MonoBehaviour
 
     private void PayPrice(int price)
     {
-
+        // I think we will just load the NPC with a fat stack
         if (startingMoney >= price)
         {
             startingMoney -= price;
