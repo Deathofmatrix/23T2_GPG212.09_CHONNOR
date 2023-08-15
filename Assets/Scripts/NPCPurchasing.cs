@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class NPCPurchasing : MonoBehaviour
@@ -24,8 +25,24 @@ public class NPCPurchasing : MonoBehaviour
         Debug.Log(itemChosenToSell);
     }
 
-    public void BuyingPlayersItem()
+    public void BuyingPlayersItem(Item.ItemEnum itemEnum)
     {
+        //switch(itemEnum)
+        //{
+        //    case Item.ItemEnum.Apple:
+        //        Debug.Log("Apple Item");
+        //            break;
+        //    case Item.ItemEnum.Pear:
+        //        Debug.Log("Pear Item");
+        //            break;
+        //    case Item.ItemEnum.Carrot:
+        //        Debug.Log("Carrot Item");
+        //            break;
+        //        default:
+        //        throw new System.Exception("Invalid Item");
+        //}
+
+
         // NPc will want the item and pay the regular price for it 
         int itemPrice = itemsManager.GetPriceOfItem(itemChosenToSell);
 

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Carrot
   m_EditorClassIdentifier: 
   itemEnum: 1
-  itemImage: {fileID: 21300000, guid: 831ceba7ac395bb41ad6caad4be5e67d, type: 3}
+  itemImage: {fileID: 21300000, guid: 84b5572cf4d9a4d47ad4f715e51ad02e, type: 3}
   itemPrice: 3
   itemText: 
