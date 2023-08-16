@@ -36,7 +36,7 @@ namespace Bitgem.VFX.StylisedWater
                 var drawSca = new Vector3(Mathf.RoundToInt(sca.x), Mathf.RoundToInt(sca.y), Mathf.RoundToInt(sca.z)) * TileSize;
                 drawPos += drawSca / 2f;
                 drawPos += transform.position;
-                drawPos -= new Vector3(TileSize, TileSize, TileSize);
+                //drawPos -= new Vector3(TileSize, TileSize, TileSize);
 
                 // render as wired volumes
                 Gizmos.DrawWireCube(drawPos, drawSca);

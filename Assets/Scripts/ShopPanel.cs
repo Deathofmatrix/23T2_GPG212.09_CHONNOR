@@ -24,10 +24,10 @@ public class ShopPanel : MonoBehaviour
     {
         if(inventoryItem == null && item == null)
         {
-            Debug.Log("InvItem == null and item == null");
+            //Debug.Log("InvItem == null and item == null");
             if (inventorySlot.transform.childCount != 0)
             {
-                Debug.Log("Child count not zero");
+                //Debug.Log("Child count not zero");
                 GetItem(); 
             }
         }

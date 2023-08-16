@@ -97,13 +97,18 @@ namespace Bitgem.VFX.StylisedWater
 
         public float? GetHeight(Vector3 _position)
         {
+            Debug.Log("GetHeight method called!");
+
             // convert the position to a tile
             var x = Mathf.FloorToInt((_position.x - transform.position.x + 0.5f) / TileSize);
             var z = Mathf.FloorToInt((_position.z - transform.position.z + 0.5f) / TileSize);
 
+            float? resultingY = null; // This will store the resulting y value
+
             // check if out of bounds
             if (x < 0 || x >= MAX_TILES_X || z < 0 || z >= MAX_TILES_Z)
             {
+                Debug.Log($"Position: {_position}, Tile: ({x}, {z}), Resulting Y: {resultingY}");
                 return null;
             }
 
@@ -111,14 +116,19 @@ namespace Bitgem.VFX.StylisedWater
             // TODO : could be reworked to cater for gaps
             for (var y = MAX_TILES_Y - 1; y >= 0; y--)
             {
+
                 if (tiles[x, y, z])
                 {
-                    return transform.position.y + y * TileSize;
+                    resultingY = transform.position.y + (y * TileSize) + TileSize;
+                    Debug.DrawRay(_position, Vector3.up * 10, Color.red, 2f);
+                    break; // Exit the loop as we've found the highest active water block
                 }
             }
 
-            // no water in the column
-            return null;
+            // log the results
+            Debug.Log($"Position: {_position}, Tile: ({x}, {z}), Resulting Y: {resultingY}");
+
+            return resultingY;
         }
 
         public void Rebuild()
@@ -156,11 +166,11 @@ namespace Bitgem.VFX.StylisedWater
                         }
 
                         // calculate tile position
-                        var x0 = x * TileSize - 0.5f;
+                        var x0 = x * TileSize /*- 0.5f*/;
                         var x1 = x0 + TileSize;
-                        var y0 = y * TileSize - 0.5f;
+                        var y0 = y * TileSize /*- 0.5f*/;
                         var y1 = y0 + TileSize;
-                        var z0 = z * TileSize - 0.5f;
+                        var z0 = z * TileSize /*- 0.5f*/;
                         var z1 = z0 + TileSize;
                         var ux0 = x0 + transform.position.x;
                         var ux1 = x1 + transform.position.x;

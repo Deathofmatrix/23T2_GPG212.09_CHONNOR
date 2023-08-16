@@ -35,6 +35,7 @@ namespace Bitgem.VFX.StylisedWater
             // ensure a water volume
             if (!WaterVolume)
             {
+                Debug.LogWarning("No Water Volume component on Helper");
                 return 0f;
             }
 
@@ -42,6 +43,7 @@ namespace Bitgem.VFX.StylisedWater
             var renderer = WaterVolume.gameObject.GetComponent<MeshRenderer>();
             if (!renderer || !renderer.sharedMaterial)
             {
+                Debug.LogWarning("No Material on Helper");
                 return 0f;
             }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class ShopState : BaseState
 {
@@ -19,15 +20,6 @@ public class ShopState : BaseState
 
     public override void UpdateState()
     {
-
-        // Run Shop
-        // Call Purchasing Method
-        if (Input.GetKeyUp(KeyCode.E) && ctx.IsInShop == true)
-        {
-            ctx.ShopPanelGO.SetActive(true);
-        }
-
-
         // bring up the text that tells the player to press E
         // may need to work out how to turn it off
 
@@ -43,6 +35,7 @@ public class ShopState : BaseState
     public override void ExitState() 
     {
         ctx.shopPanelGO.SetActive(false);
+        ctx.isShopOpen = false;
 
         if (ctx.InventorySlot.transform.childCount != 0)
         {
@@ -51,6 +44,7 @@ public class ShopState : BaseState
             Debug.LogWarning(itemDestroyed);
             InventoryManager.instance.AddItem(itemDestroyed);
         }
+
     }
 
     public override void OnTriggerEnter(StateMachine stateMachine, Collider collider) {    }

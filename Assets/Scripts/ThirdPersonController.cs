@@ -1,6 +1,8 @@
+using Cinemachine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,8 +12,8 @@ public class ThirdPersonController : MonoBehaviour
     private InputAction move;
 
     private Rigidbody rb;
-    [SerializeField] private float movementForce = 1f;
-    [SerializeField] private float maxSpeed = 5f;
+    public float movementForce = 1f;
+    public float maxSpeed = 5f;
     private Vector3 forceDirection = Vector3.zero;
 
     [SerializeField] private Camera playerCamera;
