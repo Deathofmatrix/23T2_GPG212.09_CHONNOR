@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90f4d120c57d65343a75f02e4d8f49c8, type: 3}
-  m_Name: Carrot
+  m_Name: Banana
   m_EditorClassIdentifier: 
-  itemEnum: 1
-  itemImage: {fileID: 21300000, guid: 84b5572cf4d9a4d47ad4f715e51ad02e, type: 3}
-  itemPrice: 3
+  itemEnum: 3
+  itemImage: {fileID: 21300000, guid: fd31ec930e65af84e84d58a4a02bf5d1, type: 3}
+  itemPrice: 10
   itemText: 

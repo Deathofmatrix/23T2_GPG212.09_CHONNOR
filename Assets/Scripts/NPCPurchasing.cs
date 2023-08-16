@@ -6,26 +6,25 @@ using UnityEngine;
 public class NPCPurchasing : MonoBehaviour
 {
 
-
     // this and the Item Manager script are my understanding of how the NPC's would interact with our Inventory
     // If what i've got here won't match up with the Inventory system implemented, let me know
     // main purpose of the 
-    [SerializeField] private Item.ItemEnum itemChosenToSell;
-    public ItemsManager itemsManager;
 
-    [SerializeField] private Item.ItemEnum itemWanted;
+    
+
     [SerializeField] private Item.ItemEnum itemNeeded;
     [SerializeField] private Item.ItemEnum itemUnWanted;
 
     [SerializeField] private int startingMoney;
+    [SerializeField] private int currentMoney;
 
     private void Start()
     {
-        itemChosenToSell = itemsManager.itemsList[0].itemEnum;
-        Debug.Log(itemChosenToSell);
+        currentMoney = startingMoney;
+        
     }
 
-    public void BuyingPlayersItem(Item.ItemEnum itemEnum)
+    public void BuyingPlayersItem(Item item, out bool didNPCBuy, out int amountPaid)
     {
         //switch(itemEnum)
         //{
@@ -41,43 +40,48 @@ public class NPCPurchasing : MonoBehaviour
         //        default:
         //        throw new System.Exception("Invalid Item");
         //}
+        
 
 
-        // NPc will want the item and pay the regular price for it 
-        int itemPrice = itemsManager.GetPriceOfItem(itemChosenToSell);
-
-        if (itemChosenToSell == itemWanted)
-        {
-            PayPrice(itemPrice);
-        }
+        Item.ItemEnum itemEnum = item.itemEnum;
+        // NPC will want the item and pay the regular price for it 
+        int itemPrice = item.itemPrice;
 
         // they may decde they NEED the item, and pay double the cost
-        else if (itemChosenToSell == itemNeeded)
+        if (itemEnum == itemNeeded)
         {
-            PayPrice(itemPrice * 2);
+            PayPrice(itemPrice *2, out didNPCBuy, out amountPaid);
         }
 
         // if they don't want, or need, they'll politely decline
-        else if (itemChosenToSell == itemUnWanted)
+        else if (itemEnum == itemUnWanted)
         {
-            Debug.Log("NPC Rejected the item");
+            didNPCBuy = true;
+            amountPaid = 0;
         }
 
+        else
+        {
+            PayPrice(itemPrice, out didNPCBuy, out amountPaid);
+        }
     }
 
-    private void PayPrice(int price)
+    private void PayPrice(int price, out bool didNPCBuy, out int amountPaid)
     {
         // I think we will just load the NPC with a fat stack
-        if (startingMoney >= price)
+        if (currentMoney >= price)
         {
-            startingMoney -= price;
+            currentMoney -= price;
             Debug.Log("NPc Bought the Item");
+            didNPCBuy=true;
+            amountPaid=price;
         }
         else
         {
+            didNPCBuy=false;
+            amountPaid=0;
             Debug.Log("NPC Didn't have enough money");
-        }
-            
+        }   
     }
 
 

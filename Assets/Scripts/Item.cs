@@ -9,9 +9,9 @@ public class Item : ScriptableObject
     public enum ItemEnum
     {
         Undeclared,
-        Carrot,
+        Orange,
         Apple,
-        Pear
+        Banana,
     }
 
     public ItemEnum itemEnum;

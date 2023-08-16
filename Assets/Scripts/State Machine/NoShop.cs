@@ -9,6 +9,7 @@ public class NoShop : BaseState
 
     public override void EnterState()
     {
+       
         ctx.pressE.enabled = false;
         ctx.IsInShop = false;
         Debug.Log("You are out at Sea");
@@ -37,10 +38,14 @@ public class NoShop : BaseState
     {
         GameObject go = collider.gameObject;
 
-        if(go.CompareTag("Shop"))
+        if (go.CompareTag("Shop"))
         {
+            ctx.currentNPC = go.transform.parent.GetComponent<NPCPurchasing>();
             SwitchStates(factory.Shop());
         }
+    }
+    public override void CheckItemPrice()
+    {
     }
 
     public override void OnTriggerExit(StateMachine stateMachine, Collider collider)

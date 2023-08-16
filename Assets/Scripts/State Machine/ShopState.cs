@@ -24,8 +24,10 @@ public class ShopState : BaseState
         // Call Purchasing Method
         if (Input.GetKeyUp(KeyCode.E) && ctx.IsInShop == true)
         {
-            ctx.ShopPanel.SetActive(true);
+            ctx.ShopPanelGO.SetActive(true);
         }
+
+
         // bring up the text that tells the player to press E
         // may need to work out how to turn it off
 
@@ -38,7 +40,18 @@ public class ShopState : BaseState
         // call switchStates()
     }
 
-    public override void ExitState() {    }
+    public override void ExitState() 
+    {
+        ctx.shopPanelGO.SetActive(false);
+
+        if (ctx.InventorySlot.transform.childCount != 0)
+        {
+            Debug.Log("Got passed Check");
+            Item itemDestroyed = ctx.shopPanelGO.GetComponent<ShopPanel>().DestroyItem();
+            Debug.LogWarning(itemDestroyed);
+            InventoryManager.instance.AddItem(itemDestroyed);
+        }
+    }
 
     public override void OnTriggerEnter(StateMachine stateMachine, Collider collider) {    }
 
@@ -48,7 +61,27 @@ public class ShopState : BaseState
 
         if (go.CompareTag("Shop"))
         {
+            ctx.currentNPC = null;
             SwitchStates(factory.NoShopState());
         }
+
     }
+
+    public override void CheckItemPrice()
+    {
+        bool didNPCBuyTemp = true;
+        int amountPaidTemp = 0;
+        ctx.CurrentNPC.BuyingPlayersItem(ctx.CurrentItem, out didNPCBuyTemp, out amountPaidTemp);
+
+        if(didNPCBuyTemp)
+        {
+            MoneyManager.AddMoney(amountPaidTemp);
+            ctx.shopPanelGO.GetComponent<ShopPanel>().DestroyItem();
+        }
+        else
+        {
+            Debug.Log("Didn't have enough money");
+        }
+    }
+
 }
