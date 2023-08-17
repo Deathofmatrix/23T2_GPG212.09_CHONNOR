@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeBoat : MonoBehaviour
 {
@@ -26,6 +27,26 @@ public class UpgradeBoat : MonoBehaviour
     {
         speedButton.text = $"Speed ${speedPrice}";
         sizeButton.text = $"Big Boat ${sizePrice}";
+
+        if (MoneyManager.currentFunds < speedPrice)
+        {
+            speedButton.transform.parent.GetComponent<Button>().interactable = false;
+        }
+
+        if (MoneyManager.currentFunds < sizePrice)
+        {
+            sizeButton.transform.parent.GetComponent<Button>().interactable = false;
+        }
+
+        if (MoneyManager.currentFunds >= speedPrice)
+        {
+            speedButton.transform.parent.GetComponent<Button>().interactable = true;
+        }
+
+        if (MoneyManager.currentFunds >= sizePrice)
+        {
+            sizeButton.transform.parent.GetComponent<Button>().interactable = true;
+        }
     }
 
     public void UpgradeBoatStats(int upgradeNumber)

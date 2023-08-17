@@ -12,6 +12,8 @@ public class ThirdPersonController : MonoBehaviour
     private PlayerController playerActionAsset;
     private InputAction move;
 
+    private bool canBoatRunSoundPlay = false;
+
     private Rigidbody rb;
     public float movementForce = 1f;
     public float maxSpeed = 5f;
@@ -20,6 +22,7 @@ public class ThirdPersonController : MonoBehaviour
     [SerializeField] private Camera playerCamera;
 
     [SerializeField] private GameObject inventoryCanvas;
+    [SerializeField] private GameObject inventoryTutorial;
 
     private void Awake()
     {
@@ -50,15 +53,23 @@ public class ThirdPersonController : MonoBehaviour
     {
         if (move.ReadValue<Vector2>() != Vector2.zero)
         {
-            Debug.Log("Boat Running");
-            FindObjectOfType<AudioManager>().Pause("BoatIdle");
-            FindObjectOfType<AudioManager>().Play("BoatRunning");
+            if (canBoatRunSoundPlay)
+            {
+                canBoatRunSoundPlay = false;
+                Debug.Log("Boat Running");
+                FindObjectOfType<AudioManager>().Pause("BoatIdle");
+                FindObjectOfType<AudioManager>().Play("BoatRunning");
+            }
         }
         else
         {
-            Debug.Log("Boat Idle");
-            FindObjectOfType<AudioManager>().Pause("BoatRunning");
-            FindObjectOfType<AudioManager>().Play("BoatIdle");
+            if (!canBoatRunSoundPlay)
+            {
+                canBoatRunSoundPlay = true;
+                Debug.Log("Boat Idle");
+                FindObjectOfType<AudioManager>().Pause("BoatRunning");
+                FindObjectOfType<AudioManager>().Play("BoatIdle");
+            }
         }
     }
 
@@ -82,6 +93,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private void OpenInventory(InputAction.CallbackContext obj)
     {
+        inventoryTutorial.SetActive(false);
         FindObjectOfType<AudioManager>().Play("OpenInventory");
         bool isInvOpen = inventoryCanvas.activeInHierarchy;
         inventoryCanvas.SetActive(!isInvOpen);
