@@ -6,6 +6,11 @@ public class PickupItem : MonoBehaviour
 {
     [SerializeField] private Item item;
 
+    private void Start()
+    {
+        transform.position = new Vector3(transform.position.x, 20, transform.position.z);
+    }
+
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.CompareTag("Player"))
