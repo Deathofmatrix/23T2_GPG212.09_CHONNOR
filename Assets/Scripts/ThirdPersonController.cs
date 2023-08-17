@@ -1,4 +1,5 @@
 using Cinemachine;
+using EasyAudioSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -45,6 +46,22 @@ public class ThirdPersonController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    private void Update()
+    {
+        if (move.ReadValue<Vector2>() != Vector2.zero)
+        {
+            Debug.Log("Boat Running");
+            FindObjectOfType<AudioManager>().Pause("BoatIdle");
+            FindObjectOfType<AudioManager>().Play("BoatRunning");
+        }
+        else
+        {
+            Debug.Log("Boat Idle");
+            FindObjectOfType<AudioManager>().Pause("BoatRunning");
+            FindObjectOfType<AudioManager>().Play("BoatIdle");
+        }
+    }
+
     private void FixedUpdate()
     {
         forceDirection += move.ReadValue<Vector2>().x * GetCameraRight(playerCamera) * movementForce;
@@ -65,6 +82,7 @@ public class ThirdPersonController : MonoBehaviour
 
     private void OpenInventory(InputAction.CallbackContext obj)
     {
+        FindObjectOfType<AudioManager>().Play("OpenInventory");
         bool isInvOpen = inventoryCanvas.activeInHierarchy;
         inventoryCanvas.SetActive(!isInvOpen);
         Cursor.visible = !isInvOpen;

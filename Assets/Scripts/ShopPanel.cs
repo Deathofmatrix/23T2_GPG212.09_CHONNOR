@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopPanel : MonoBehaviour
 {
@@ -10,6 +12,10 @@ public class ShopPanel : MonoBehaviour
 
     [SerializeField] private InventorySlot inventorySlot;
     [SerializeField] private InventoryItem inventoryItem;
+    [SerializeField] private GameObject reactionImageGO;
+    [SerializeField] private Sprite[] reactionImages;
+    public TextMeshProUGUI npcMoneyText;
+    
 
     [SerializeField] private Item item;
 
@@ -56,5 +62,23 @@ public class ShopPanel : MonoBehaviour
         item = null;
         return itemDestroyed;
         //inventoryItem = null;
+    }
+
+    public void ShowNPCReaction(int reactionIndexNumber)
+    {
+        StartCoroutine(FlashNPCReaction(reactionImages[reactionIndexNumber]));
+    }
+
+    private IEnumerator FlashNPCReaction(Sprite reactionSprite)
+    {
+        //set sprite to the correct image
+        reactionImageGO.GetComponent<Image>().sprite = reactionSprite;
+        //turn on sprite
+        reactionImageGO.SetActive(true);
+        Debug.Log("Turn On Reaction");
+        yield return new WaitForSeconds(0.5f);
+        //turn off sprite
+        reactionImageGO.SetActive(false);
+        Debug.Log("Turn Off Reaction");
     }
 }

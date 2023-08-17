@@ -10,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     public Item[] startItems;
 
     public InventorySlot[] inventorySlots;
+    public InventorySlot sellSlot;
     public GameObject inventoryItemPrefab;
 
     private void Awake()
@@ -44,6 +45,6 @@ public class InventoryManager : MonoBehaviour
         Debug.Log("Spawn Item");
         GameObject newItemGO = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = newItemGO.GetComponent<InventoryItem>();
-        inventoryItem.InitialiseItem(item);
+        inventoryItem.InitialiseItem(item, sellSlot);
     }
 }

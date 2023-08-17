@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using EasyAudioSystem;
 
 public class StateMachine : MonoBehaviour
 {
@@ -25,6 +26,8 @@ public class StateMachine : MonoBehaviour
 
     public PlayerController actionMap;
     private InputAction interact;
+
+    public AudioManager audioManager;
 
     public BaseState CurrentState { get { return currentState; } set { currentState = value; } }
 
@@ -65,6 +68,12 @@ public class StateMachine : MonoBehaviour
         interact.Disable();
     }
 
+    private void Start()
+    {
+        FindObjectOfType<AudioManager>().Play("Ambience");
+        audioManager = FindObjectOfType<AudioManager>();
+    }
+
     void Update()
     {
         currentState.UpdateState();
@@ -79,6 +88,7 @@ public class StateMachine : MonoBehaviour
     {
         if (collider.CompareTag("Upgrade"))
         {
+            FindObjectOfType<AudioManager>().Play("OpenInventory");
             upgradePanelGO.SetActive(true);
         }
         currentState.OnTriggerEnter(this, collider);
@@ -88,6 +98,7 @@ public class StateMachine : MonoBehaviour
     {
         if (collider.CompareTag("Upgrade"))
         {
+            FindObjectOfType<AudioManager>().Play("OpenInventory");
             upgradePanelGO.SetActive(false);
         }
         currentState.OnTriggerExit(this, collider);
@@ -105,6 +116,7 @@ public class StateMachine : MonoBehaviour
         // Call Purchasing Method
         if (IsInShop == true)
         {
+            FindObjectOfType<AudioManager>().Play("OpenInventory");
             if (!isShopOpen)
             {
                 ShopPanelGO.SetActive(true);

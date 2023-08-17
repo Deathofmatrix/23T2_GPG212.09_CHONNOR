@@ -1,4 +1,5 @@
 
+using EasyAudioSystem;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -40,6 +41,7 @@ public class NoShop : BaseState
 
         if (go.CompareTag("Shop"))
         {
+            ctx.audioManager.Play("NPCSound");
             ctx.currentNPC = go.transform.parent.GetComponent<NPCPurchasing>();
             SwitchStates(factory.Shop());
         }

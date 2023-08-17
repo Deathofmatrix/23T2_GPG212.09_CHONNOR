@@ -10,21 +10,20 @@ public class NPCPurchasing : MonoBehaviour
     // If what i've got here won't match up with the Inventory system implemented, let me know
     // main purpose of the 
 
-    
+    [SerializeField] private ShopPanel shopPanel;
 
     [SerializeField] private Item.ItemEnum itemNeeded;
     [SerializeField] private Item.ItemEnum itemUnWanted;
 
     [SerializeField] private int startingMoney;
-    [SerializeField] private int currentMoney;
+    public int currentMoney;
 
     private void Start()
     {
         currentMoney = startingMoney;
-        
     }
 
-    public void BuyingPlayersItem(Item item, out bool didNPCBuy, out int amountPaid)
+    public void BuyingPlayersItem(Item item, out bool didNPCBuy, out int amountPaid, out int reactionIndex)
     {
         //switch(itemEnum)
         //{
@@ -51,6 +50,11 @@ public class NPCPurchasing : MonoBehaviour
         if (itemEnum == itemNeeded)
         {
             PayPrice(itemPrice *2, out didNPCBuy, out amountPaid);
+            if (didNPCBuy)
+            {
+                reactionIndex = 0;
+            }
+            else { reactionIndex = -1; }
         }
 
         // if they don't want, or need, they'll politely decline
@@ -58,11 +62,17 @@ public class NPCPurchasing : MonoBehaviour
         {
             didNPCBuy = true;
             amountPaid = 0;
+            reactionIndex = 2;
         }
 
         else
         {
             PayPrice(itemPrice, out didNPCBuy, out amountPaid);
+            if (didNPCBuy)
+            {
+                reactionIndex = 1;
+            }
+            else { reactionIndex = -1; }
         }
     }
 

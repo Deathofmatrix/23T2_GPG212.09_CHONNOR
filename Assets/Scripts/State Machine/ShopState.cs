@@ -20,6 +20,8 @@ public class ShopState : BaseState
 
     public override void UpdateState()
     {
+
+        ctx.shopPanelGO.GetComponent<ShopPanel>().npcMoneyText.text = $"NPC - ${ctx.currentNPC.currentMoney}";
         // bring up the text that tells the player to press E
         // may need to work out how to turn it off
 
@@ -65,12 +67,14 @@ public class ShopState : BaseState
     {
         bool didNPCBuyTemp = true;
         int amountPaidTemp = 0;
-        ctx.CurrentNPC.BuyingPlayersItem(ctx.CurrentItem, out didNPCBuyTemp, out amountPaidTemp);
+        int reactionIndexTemp = -1;
+        ctx.CurrentNPC.BuyingPlayersItem(ctx.CurrentItem, out didNPCBuyTemp, out amountPaidTemp, out reactionIndexTemp);
 
         if(didNPCBuyTemp)
         {
             MoneyManager.AddMoney(amountPaidTemp);
             ctx.shopPanelGO.GetComponent<ShopPanel>().DestroyItem();
+            ctx.shopPanelGO.GetComponent<ShopPanel>().ShowNPCReaction(reactionIndexTemp);
         }
         else
         {
