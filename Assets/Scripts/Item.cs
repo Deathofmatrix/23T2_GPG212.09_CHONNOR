@@ -18,5 +18,6 @@ public class Item : ScriptableObject
     public Sprite itemImage;
     public int itemPrice;
     public string itemText;
+    public bool isQuestItem;
 
 }

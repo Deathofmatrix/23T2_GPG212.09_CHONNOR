@@ -9,6 +9,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     public Item item;
     public Transform parentAfterDrag;
+    public bool isQuestitem;
 
     private Item.ItemEnum itemType;
     [SerializeField] private Image image;
@@ -32,6 +33,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         itemPrice = newItem.itemPrice;
         itemText = newItem.itemText;
         sellPanelSlot = sellSlot;
+        isQuestitem = newItem.isQuestItem;
 
         itemPriceText.text = $"${itemPrice}";
     }

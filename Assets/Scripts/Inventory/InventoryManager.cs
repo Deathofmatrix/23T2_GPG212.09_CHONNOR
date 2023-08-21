@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -39,6 +40,20 @@ public class InventoryManager : MonoBehaviour
         }
         return false;
     }
+    
+    public void RemoveItem(InventoryItem item)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot == item )
+            {
+                Destroy(itemInSlot);
+                return;
+            }
+        }
+    }
 
     public void SpawnNewItem(Item item, InventorySlot slot)
     {
@@ -46,5 +61,20 @@ public class InventoryManager : MonoBehaviour
         GameObject newItemGO = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = newItemGO.GetComponent<InventoryItem>();
         inventoryItem.InitialiseItem(item, sellSlot);
+    }
+
+    public InventoryItem GetQuestItem()
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot.isQuestitem)
+            {
+                return itemInSlot;
+            }
+        }
+        Debug.Log("No Quest Item In inventory");
+        return null;
     }
 }
