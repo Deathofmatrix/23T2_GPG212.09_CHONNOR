@@ -47,7 +47,7 @@ public class InventoryManager : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (itemInSlot.item == item )
+            if (itemInSlot != null && itemInSlot.item == item )
             {
                 Destroy(itemInSlot.gameObject);
                 return;
@@ -61,7 +61,7 @@ public class InventoryManager : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (itemInSlot.item == itemToRemove)
+            if (itemInSlot != null && itemInSlot.item == itemToRemove)
             {
                 Destroy(itemInSlot.gameObject);
                 SpawnNewItem(itemToSpawn, slot);
@@ -84,7 +84,7 @@ public class InventoryManager : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (itemInSlot.isQuestitem)
+            if (itemInSlot != null && itemInSlot.isQuestitem)
             {
                 return itemInSlot;
             }
