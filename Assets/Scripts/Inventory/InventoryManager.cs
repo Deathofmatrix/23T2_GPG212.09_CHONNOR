@@ -41,15 +41,30 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
     
-    public void RemoveItem(InventoryItem item)
+    public void RemoveItem(Item item)
     {
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
-            if (itemInSlot == item )
+            if (itemInSlot.item == item )
             {
-                Destroy(itemInSlot);
+                Destroy(itemInSlot.gameObject);
+                return;
+            }
+        }
+    }
+
+    public void SwapItem(Item itemToRemove, Item itemToSpawn)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem itemInSlot = slot.GetComponentInChildren<InventoryItem>();
+            if (itemInSlot.item == itemToRemove)
+            {
+                Destroy(itemInSlot.gameObject);
+                SpawnNewItem(itemToSpawn, slot);
                 return;
             }
         }

@@ -5,24 +5,24 @@ using UnityEngine;
 public class NPCQuestGiver : MonoBehaviour
 {
     [SerializeField] private Item itemNPCNeeds;
-    [SerializeField] private QuestManager questManager;
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Entering trigger");
         if (other.CompareTag("Player"))
         {
-            //show NPC menu or instantly trade with a button press
-            //tell the trade button that this is the current Quest NPC
+            Debug.Log("Entering trigger as player");
+            QuestManager.instance.ShowQuestCanvas(itemNPCNeeds);
         }
     }
 
-    public void CheckIfItemsMatch()
+    private void OnTriggerExit(Collider other)
     {
-        if (InventoryManager.instance.GetQuestItem() == itemNPCNeeds)
+        Debug.Log("Exiting trigger");
+        if (other.CompareTag("Player"))
         {
-            Item itemToGive = questManager.CheckItemToGiveToPlayer(itemNPCNeeds);
-            InventoryManager.instance.RemoveItem(InventoryManager.instance.GetQuestItem());
-            InventoryManager.instance.AddItem(itemNPCNeeds);
+            Debug.Log("Exited trigger as player");
+            QuestManager.instance.ShowQuestCanvas(itemNPCNeeds);
         }
     }
 

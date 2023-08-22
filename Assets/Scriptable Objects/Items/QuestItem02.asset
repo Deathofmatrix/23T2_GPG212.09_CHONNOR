@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuestItem02
   m_EditorClassIdentifier: 
   itemEnum: 0
-  itemImage: {fileID: 0}
+  itemImage: {fileID: 21300000, guid: 831ceba7ac395bb41ad6caad4be5e67d, type: 3}
   itemPrice: 0
   itemText: 
   isQuestItem: 1
