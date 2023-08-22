@@ -73,5 +73,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickUpItem - Banana Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5607975118428591357, guid: 1c00b158ee55e594a80ff5bf6cc21daa,
+        type: 3}
+      propertyPath: m_TagString
+      value: PickUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1c00b158ee55e594a80ff5bf6cc21daa, type: 3}

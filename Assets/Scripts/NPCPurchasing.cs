@@ -10,8 +10,7 @@ public class NPCPurchasing : MonoBehaviour
     // If what i've got here won't match up with the Inventory system implemented, let me know
     // main purpose of the 
 
-    [SerializeField] private ShopPanel shopPanel;
-
+    
     [SerializeField] private Item.ItemEnum itemNeeded;
     [SerializeField] private Item.ItemEnum itemUnWanted;
 
@@ -25,22 +24,6 @@ public class NPCPurchasing : MonoBehaviour
 
     public void BuyingPlayersItem(Item item, out bool didNPCBuy, out int amountPaid, out int reactionIndex)
     {
-        //switch(itemEnum)
-        //{
-        //    case Item.ItemEnum.Apple:
-        //        Debug.Log("Apple Item");
-        //            break;
-        //    case Item.ItemEnum.Pear:
-        //        Debug.Log("Pear Item");
-        //            break;
-        //    case Item.ItemEnum.Carrot:
-        //        Debug.Log("Carrot Item");
-        //            break;
-        //        default:
-        //        throw new System.Exception("Invalid Item");
-        //}
-        
-
 
         Item.ItemEnum itemEnum = item.itemEnum;
         // NPC will want the item and pay the regular price for it 

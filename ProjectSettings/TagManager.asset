@@ -7,6 +7,7 @@ TagManager:
   - AppleShop
   - Shop
   - Upgrade
+  - PickUp
   layers:
   - Default
   - TransparentFX
