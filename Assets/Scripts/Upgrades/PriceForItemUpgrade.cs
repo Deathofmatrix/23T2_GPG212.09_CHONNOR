@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class PriceForItemUpgrade : MonoBehaviour
 {
+    public static bool hasPriceUpgrade = false;
     void Start()
     {
-        
+        hasPriceUpgrade = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

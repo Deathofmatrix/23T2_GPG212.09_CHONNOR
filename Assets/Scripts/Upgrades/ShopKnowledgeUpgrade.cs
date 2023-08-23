@@ -8,9 +8,14 @@ public class ShopKnowledgeUpgrade : MonoBehaviour
 
     void Start()
     {
-        favItemCubes[0].SetActive(true);
-        favItemCubes[1].SetActive(true);
-        favItemCubes[2].SetActive(true);
+        foreach (GameObject fav in favItemCubes)
+        {
+            fav.SetActive(true);
+        }
+        
+        //favItemCubes[0].SetActive(true);
+        //favItemCubes[1].SetActive(true);
+        //favItemCubes[2].SetActive(true);
     }
 
 }
