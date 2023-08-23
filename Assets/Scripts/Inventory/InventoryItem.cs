@@ -18,9 +18,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [SerializeField] private InventorySlot sellPanelSlot;
 
     private int itemPrice;
-    private string itemText;
+    //private string itemText;
 
-    private int tapTimes;
+    [SerializeField] private int tapTimes;
     [SerializeField] private float resetDoubleClickTimerSeconds;
 
     public void InitialiseItem(Item newItem, InventorySlot sellSlot)
@@ -31,7 +31,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         itemType = newItem.itemEnum;
         itemPrice = newItem.itemPrice;
-        itemText = newItem.itemText;
+        //itemText = newItem.itemText;
         sellPanelSlot = sellSlot;
         isQuestitem = newItem.isQuestItem;
 

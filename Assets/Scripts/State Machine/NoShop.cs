@@ -13,7 +13,7 @@ public class NoShop : BaseState
        
         ctx.pressE.enabled = false;
         ctx.IsInShop = false;
-        Debug.Log("You are out at Sea");
+        //Debug.Log("You are out at Sea");
     }
 
     public override void UpdateState()

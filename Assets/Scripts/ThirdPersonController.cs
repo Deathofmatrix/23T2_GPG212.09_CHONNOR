@@ -66,7 +66,7 @@ public class ThirdPersonController : MonoBehaviour
             if (!canBoatRunSoundPlay)
             {
                 canBoatRunSoundPlay = true;
-                Debug.Log("Boat Idle");
+                //Debug.Log("Boat Idle");
                 FindObjectOfType<AudioManager>().Pause("BoatRunning");
                 FindObjectOfType<AudioManager>().Play("BoatIdle");
             }

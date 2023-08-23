@@ -15,5 +15,6 @@ MonoBehaviour:
   itemEnum: 0
   itemImage: {fileID: 21300000, guid: 59bc9e0bc706be248a002c97f62a176c, type: 3}
   itemPrice: 0
-  itemText: 
+  wantingItemDescription: garbage trash filth i love it all. Any spare??
+  givenItemDescription: yum yum yum gonna eat it all up heres a circle
   isQuestItem: 1

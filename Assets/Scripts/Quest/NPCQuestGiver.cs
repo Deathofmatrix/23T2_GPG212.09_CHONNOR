@@ -8,20 +8,20 @@ public class NPCQuestGiver : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Entering trigger");
+        //Debug.Log("Entering trigger");
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Entering trigger as player");
+            //Debug.Log("Entering trigger as player");
             QuestManager.instance.ShowQuestCanvas(itemNPCNeeds);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exiting trigger");
+        //Debug.Log("Exiting trigger");
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Exited trigger as player");
+            //Debug.Log("Exited trigger as player");
             QuestManager.instance.ShowQuestCanvas(itemNPCNeeds);
         }
     }

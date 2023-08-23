@@ -17,7 +17,8 @@ public class Item : ScriptableObject
     public ItemEnum itemEnum;
     public Sprite itemImage;
     public int itemPrice;
-    public string itemText;
+    public string wantingItemDescription;
+    public string givenItemDescription;
     public bool isQuestItem;
 
 }

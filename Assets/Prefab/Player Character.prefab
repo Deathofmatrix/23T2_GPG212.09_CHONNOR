@@ -570,6 +570,8 @@ GameObject:
   - component: {fileID: 9065949959396755372}
   - component: {fileID: 9065949959396755363}
   - component: {fileID: 9065949959396755362}
+  - component: {fileID: 835123266592478319}
+  - component: {fileID: 5377666367257046349}
   m_Layer: 0
   m_Name: Player Character
   m_TagString: Player
@@ -673,6 +675,7 @@ MonoBehaviour:
   maxSpeed: 20
   playerCamera: {fileID: 0}
   inventoryCanvas: {fileID: 0}
+  inventoryTutorial: {fileID: 0}
 --- !u!54 &9065949959396755363
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -708,3 +711,30 @@ MonoBehaviour:
   currentNPC: {fileID: 0}
   currentItem: {fileID: 0}
   inventorySlot: {fileID: 0}
+  audioManager: {fileID: 0}
+--- !u!114 &835123266592478319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9065949959396755371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6de90719ef620ef44bf2256cb152ceae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5377666367257046349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9065949959396755371}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ebe6bb434c9704e929d800b6dca38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectionRadius: 15
+  attractionForce: 15
