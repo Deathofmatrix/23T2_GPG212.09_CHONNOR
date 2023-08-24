@@ -17,6 +17,6 @@ MonoBehaviour:
   itemPrice: 0
   wantingItemDescription: "*pants* \"It\u2019s soooo hot\u2026 I just need a way
     to cool myself down\u2026\u201D"
-  givenItemDescription: "\u201CPhew, what a relief! Take this pie, I'm not that hungry.
-    Also, add this magnet to your boat!\u201D"
+  givenItemDescription: "\u201CPhew, what a relief! Take this pie, I'm not that hungry,
+    and now I'll tell you some trade secrets.\u201D"
   isQuestItem: 1

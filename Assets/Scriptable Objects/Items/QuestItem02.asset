@@ -17,5 +17,5 @@ MonoBehaviour:
   itemPrice: 0
   wantingItemDescription: "\u201CBrrr! I\u2019m so cold!\u201D"
   givenItemDescription: "\u201CAhh that\u2019s so warm! Have a fan, it\u2019s too
-    chilly here anyway, and I can tell you some trade secrets.\u201D"
+    chilly here anyway. Also, add this magnet to your boat!\u201D"
   isQuestItem: 1
