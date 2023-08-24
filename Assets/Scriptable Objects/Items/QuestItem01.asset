@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: QuestItem01
   m_EditorClassIdentifier: 
   itemEnum: 0
-  itemImage: {fileID: 21300000, guid: a6fd4efdc40b2da40b926a6d1aa93fc5, type: 3}
+  itemImage: {fileID: 21300000, guid: 9e3d350cc9657b94783ecf5424da542f, type: 3}
   itemPrice: 0
-  wantingItemDescription: Waaaaaahhhhhhh, I've lost my favourite sword and i cant
-    find a new one
-  givenItemDescription: Thanks so much, here take this glove
+  wantingItemDescription: "\u201CThis glare is driving me crazy, I really wish I
+    had some Sunglasses\u201D"
+  givenItemDescription: "\u201CWow! Thanks mate, that\u2019s much better. Here, take
+    this scarf, and this map!\u201D"
   isQuestItem: 1

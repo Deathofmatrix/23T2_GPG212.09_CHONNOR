@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: QuestItem03
   m_EditorClassIdentifier: 
   itemEnum: 0
-  itemImage: {fileID: 21300000, guid: 59bc9e0bc706be248a002c97f62a176c, type: 3}
+  itemImage: {fileID: 21300000, guid: 8bd0c04be7a2dbc4fa4d1165b1116770, type: 3}
   itemPrice: 0
-  wantingItemDescription: garbage trash filth i love it all. Any spare??
-  givenItemDescription: yum yum yum gonna eat it all up heres a circle
+  wantingItemDescription: "*pants* \"It\u2019s soooo hot\u2026 I just need a way
+    to cool myself down\u2026\u201D"
+  givenItemDescription: "\u201CPhew, what a relief! Take this pie, I'm not that hungry.
+    Also, add this magnet to your boat!\u201D"
   isQuestItem: 1

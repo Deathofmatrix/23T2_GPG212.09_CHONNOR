@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: QuestItem02
   m_EditorClassIdentifier: 
   itemEnum: 0
-  itemImage: {fileID: 21300000, guid: 831ceba7ac395bb41ad6caad4be5e67d, type: 3}
+  itemImage: {fileID: 21300000, guid: 2c7adcd379c010e4ca7ae2c75a1d23f4, type: 3}
   itemPrice: 0
-  wantingItemDescription: Do you have a glove i need to get my cakes out of the oven
-  givenItemDescription: Cheers mate, got some trash do you wanna hold onto it for
-    me
+  wantingItemDescription: "\u201CBrrr! I\u2019m so cold!\u201D"
+  givenItemDescription: "\u201CAhh that\u2019s so warm! Have a fan, it\u2019s too
+    chilly here anyway, and I can tell you some trade secrets.\u201D"
   isQuestItem: 1

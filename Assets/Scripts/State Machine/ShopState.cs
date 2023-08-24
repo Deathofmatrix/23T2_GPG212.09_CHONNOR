@@ -70,7 +70,7 @@ public class ShopState : BaseState
         int reactionIndexTemp = -1;
         ctx.CurrentNPC.BuyingPlayersItem(ctx.CurrentItem, out didNPCBuyTemp, out amountPaidTemp, out reactionIndexTemp);
 
-        if(didNPCBuyTemp)
+        if(didNPCBuyTemp && !ctx.currentItem.isQuestItem)
         {
             MoneyManager.AddMoney(amountPaidTemp);
             ctx.shopPanelGO.GetComponent<ShopPanel>().DestroyItem();

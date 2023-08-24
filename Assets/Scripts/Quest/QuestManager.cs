@@ -25,7 +25,7 @@ public class QuestManager : MonoBehaviour
 
     public void ShowQuestCanvas(Item itemNeeded)
     {
-        currentPlayerQuestItem = InventoryManager.instance.GetQuestItem().item;
+        currentPlayerQuestItem = InventoryManager.instance.GetQuestItem()?.item;
         currentNPCNeededItem = itemNeeded;
         currentPlayerItemIndex = FindCurrentQuestItemIndex(currentPlayerQuestItem);
         currentNPCItemIndex = FindCurrentQuestItemIndex(currentNPCNeededItem);
